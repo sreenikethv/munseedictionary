@@ -1,0 +1,7 @@
+1. change sqlite for postgresql
+2. Add advanced search features
+3. Improve rendering (css side)
+4. Integrate with morphological parser
+5. Add admin view
+6. Password protect option?
+

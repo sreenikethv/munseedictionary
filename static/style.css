@@ -1,0 +1,200 @@
+/* Basic styles for body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Style for the main headers */
+h1 {
+    font-size: 2em;
+    color: #4CAF50;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* Style for the horizontal line separators */
+hr {
+    width: 80%;
+    border: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+/* Center the form and add padding */
+form {
+    background-color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 500px;
+}
+
+/* Style for the input field */
+#entryInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Label style */
+td[align="right"] {
+    font-weight: bold;
+    color: #333;
+    padding-right: 10px;
+}
+
+/* Style for the submit button */
+#submitButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+/* Hover effect for the submit button */
+#submitButton:hover {
+    background-color: #45a049;
+}
+
+/* Container for dictionary entry cards */
+.entries {
+    width: 50%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* Style for each entry card */
+.entry-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+/* Hover effect for entry cards */
+.entry-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Style for the word link in each card */
+.entry-word a {
+    font-size: 1.2em;
+    color: #4CAF50;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.entry-word a:hover {
+    text-decoration: underline;
+}
+
+/* Style for the word definition */
+.entry-definition {
+    color: #555;
+    font-size: 1em;
+    margin-top: 5px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    form, .entries {
+        width: 100%;
+    }
+    .entry-card {
+        padding: 10px;
+    }
+    .entry-word a {
+        font-size: 1.1em;
+    }
+    .entry-definition {
+        font-size: 0.95em;
+    }
+}
+
+/* entry.html */
+/* Style for the body */
+#mybody {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Styling for the entry details table */
+#entryDetailsTable {
+    width: 80%;
+    max-width: 600px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#entryDetailsTable td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 1em;
+}
+
+#entryDetailsTable td:first-child {
+    font-weight: bold;
+    color: #4CAF50;
+    width: 30%;
+}
+
+/* Style for the "another dictionary search" link */
+a {
+    color: #4CAF50;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    #entryDetailsTable {
+        width: 100%;
+    }
+    #entryDetailsTable td {
+        font-size: 0.95em;
+    }
+}

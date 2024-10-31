@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+   <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}"/>
+   <body>
+      <form action="/search" method="get">
+         <table>
+            <tbody>
+               <tr>
+                  <td align="right">Entry:</td>
+                  <td><input type="text" id="entryInput" name="entry" value="{{prev_entry}}" autofocus><br></td>
+               </tr>
+      
+               <tr>
+                  <td></td>
+                  <td><input type="submit" id="submitButton" value="Go"></td>
+               </tr>
+            </tbody>
+         </table>
+      </form>
+   </body>
+</html>

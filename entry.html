@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+      <title>Munsee Dictionary</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}"/>
+      <!--
+      <style>
+         table, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+         }
+      </style>
+      -->
+   </head>
+
+   <body id="mybody">
+      <h1>Munsee Dictionary Entry</h1>
+   {% if all_clear %}
+      <hr>
+      <h2>Entry Details</h2>
+
+      <table id="entryDetailsTable" border="1">
+         <tbody>
+            <tr>
+               <td><strong>Entry</strong></td>
+               <td>{{output.get('entry')}}</td>
+            </tr>
+            <tr>
+               <td><strong>Part of speech</strong></td>
+               <td>{{output.get('pos')}}</td>
+            </tr>
+            <tr>
+               <td><strong>Definition</strong></td>
+               <td>{{output.get('definition')}}</td>
+            </tr>
+            <tr>
+               <td><strong>Semantic Category</strong></td>
+               <td>{{output.get('semantic_category')}}</td>
+            </tr>
+         </tbody>
+      </table>
+
+     <hr>
+     Click here to do <a href="/"> another dictionary search</a>
+   {% else %}
+      <p>{{entry.get('entry')}}</p>
+   {% endif %}
+   </body>
+</html>

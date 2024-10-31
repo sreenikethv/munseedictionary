@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Munsee Dictionary</title>
+      <meta name="description" content="A searchable lexicon for the Munsee language."/>
+      <meta name="keywords" content="Munsee,Munsee-Delaware, Delaware,
+         Munsee language, dictionary, lexicon, english, Algonquian"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}"/>
+   </head>
+
+   <body>
+      {% include 'header.html' %}
+      {% include 'searchform.html' %}
+      {% include 'searchresults.html' %}
+   </body>
+ </html>
