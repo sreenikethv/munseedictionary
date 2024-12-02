@@ -24,12 +24,30 @@ def get_entry(request_json):
             with contextlib.closing(connection.cursor()) as cursor:
                 entry = request_json['entry']
                 # Select data on course if it is valid
-                course_str = """
+                stmt_str = """
                 SELECT * 
                 FROM words
-                WHERE entry = ? OR definition = ? OR semantic_category = ? 
                 """
-                cursor.execute(course_str, [entry, entry, entry])
+
+                # List to hold query parameters
+                params = []
+                
+                # Add conditions to SQL if parameters are provided
+                if entry:
+                    stmt_str += " WHERE entry LIKE ? OR definition LIKE ?"
+                    params.extend([f"%{entry}%", f"%{entry}%"])
+
+
+                semantic_category = request_json['semantic_category']
+
+                if semantic_category:
+                    if 'WHERE' in stmt_str:
+                        stmt_str += " AND semantic_category LIKE ?"
+                    else:
+                        stmt_str += " WHERE semantic_category LIKE ?"
+                    params.append(f"%{semantic_category}%")     
+
+                cursor.execute(stmt_str, params)
                 table = cursor.fetchall()
 
                 # error handling
@@ -64,6 +82,42 @@ def render_main_spelling(word):
     #remove bracketed text (e.g. wte[e]hiim -> wtehiim)
     output = re.sub('\[.*?\]', '', output)
     return output
+#-----------------------------------------------------------------------
+def get_all_categories(request_json):
+    try:
+        with sqlite3.connect(_DATABASE_URL,
+            isolation_level=None, uri=True) as connection:
+            with contextlib.closing(connection.cursor()) as cursor:
+                entry = request_json['entry']
+                # Select data on course if it is valid
+                course_str = """
+                SELECT DISTINCT semantic_category
+                FROM words
+                WHERE semantic_category IS NOT NULL
+                """
+                cursor.execute(course_str)
+                table = cursor.fetchall()
+                
+                # error handling
+                request_handled_bool = True
+                for row in table:
+                    if None in row:
+                        class_dict = f"""'{entry}' not found"""
+                        request_handled_bool = False
+                        break
+
+                else:
+                    # build response json
+                    entries = []
+                    for row in table:
+                        entries.append(row[0])
+                    entries.sort()
+                output = [request_handled_bool, entries]
+                return output
+
+    except Exception as ex:
+        print(f'database.py: {ex}', file=sys.stderr)
+        sys.exit(1)
 #-----------------------------------------------------------------------
 
 if __name__ == '__main__':

@@ -1,34 +1,46 @@
+
+:root {
+    /* Default values as fallback  */
+    --text: black;
+    --background: brown;
+    --primary: goldenrod;
+    --secondary: darkgoldenrod;
+    --accent: #ffffff;
+  }
+  
+  /* UNIVERSAL SETTINGS */
+  * {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    /*background-color: var(--background);*/
+    color: var(--text);
+  }
+  
 /* Basic styles for body */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    background-color: var(--background);
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0;
-    padding: 20px;
 }
 
 /* Style for the main headers */
 h1 {
-    font-size: 2em;
-    color: #4CAF50;
+    font-size: 3em;
+    color: var(--primary);
     margin-bottom: 5px;
-    text-align: center;
 }
 
 h2 {
     font-size: 1.5em;
-    color: #333;
-    margin: 10px 0;
-    text-align: center;
+    margin: 10px;
+    color: var(--secondary);
 }
 
 /* Style for the horizontal line separators */
 hr {
     width: 80%;
-    border: 1px solid #ddd;
+    border: 1px solid var(--primary);
     margin: 20px 0;
 }
 
@@ -60,7 +72,7 @@ td[align="right"] {
 
 /* Style for the submit button */
 #submitButton {
-    background-color: #4CAF50;
+    background-color: var(--primary);
     color: white;
     padding: 10px 15px;
     border: none;
@@ -73,7 +85,7 @@ td[align="right"] {
 
 /* Hover effect for the submit button */
 #submitButton:hover {
-    background-color: #45a049;
+    background-color: var(--secondary);
 }
 
 /* Container for dictionary entry cards */
@@ -88,8 +100,7 @@ td[align="right"] {
 
 /* Style for each entry card */
 .entry-card {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
+    background-color: var(--accent);
     border-radius: 8px;
     padding: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -103,10 +114,9 @@ td[align="right"] {
 
 /* Style for the word link in each card */
 .entry-word a {
-    font-size: 1.2em;
-    color: #4CAF50;
+    font-size: 1.5em;
+    color: var(--primary);
     font-weight: bold;
-    text-decoration: none;
 }
 
 .entry-word a:hover {
@@ -157,7 +167,7 @@ td[align="right"] {
     width: 80%;
     max-width: 600px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 4px;
     margin-top: 20px;
     background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -172,13 +182,13 @@ td[align="right"] {
 
 #entryDetailsTable td:first-child {
     font-weight: bold;
-    color: #4CAF50;
+    color: var(--primary);
     width: 30%;
 }
 
 /* Style for the "another dictionary search" link */
 a {
-    color: #4CAF50;
+    color: var(--primary);
     font-weight: bold;
     text-decoration: none;
     margin-top: 15px;
@@ -196,5 +206,66 @@ a:hover {
     }
     #entryDetailsTable td {
         font-size: 0.95em;
+    }
+}
+
+/* Style for the dropdown container */
+.dropdown {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+}
+
+/* Style for the Category label */
+td[align="right"] {
+    font-weight: bold;
+    color: #333;
+    padding-right: 10px;
+}
+
+/* Style for the dropdown select element */
+#semantic-category {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #333;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none; /* For Safari */
+    -moz-appearance: none; /* For Firefox */
+}
+
+/* Add a dropdown arrow for cross-browser consistency */
+#semantic-category::after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #888;
+}
+
+/* Style for hover and focus */
+#semantic-category:hover {
+    border-color: var(--primary);
+}
+
+#semantic-category:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 3px rgba(76, 175, 80, 0.4);
+}
+
+/* Responsive adjustment */
+@media (max-width: 600px) {
+    .dropdown {
+        max-width: 100%;
+    }
+    #semantic-category {
+        font-size: 14px;
     }
 }

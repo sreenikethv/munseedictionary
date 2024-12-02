@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-   <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}"/>
    <body>
       <form action="/search" method="get">
          <table>
@@ -9,7 +8,18 @@
                   <td align="right">Entry:</td>
                   <td><input type="text" id="entryInput" name="entry" value="{{prev_entry}}" autofocus><br></td>
                </tr>
-      
+               <tr>
+                  <td align="right">Category:</td>
+                  <td>
+                  <div class="dropdown">
+                     <select name="semantic_category" id="semantic-category">
+                        {% for category in all_categories %}
+                        <option value="{{category}}">{{category}}</option>
+                        {% endfor %}
+                     </select>
+                   </div>
+                  </td>
+               </tr>
                <tr>
                   <td></td>
                   <td><input type="submit" id="submitButton" value="Go"></td>

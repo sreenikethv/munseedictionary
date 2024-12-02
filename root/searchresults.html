@@ -1,0 +1,12 @@
+<!-- Container for dictionary entry cards -->
+<div class="entries">
+   {% for row in output_json %}
+   <div class="entry-card">
+      <div class="entry-word">
+         <a href="/entry?classid={{row['entry']}}">{{row['entry']}}</a>
+         <i>{{row['pos']}}</i>
+         <p class="entry-definition"><strong>{{row['definition']}}</strong></p>
+      </div>
+   </div>
+   {% endfor %}
+</div>
